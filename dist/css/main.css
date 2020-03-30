@@ -1,0 +1,25 @@
+.topbar-text {
+  font-size: 1.5rem; }
+
+.body-area {
+  height: 100vh; }
+  .body-area .center-area {
+    height: 100%; }
+  .body-area .option {
+    text-align: center;
+    cursor: pointer; }
+  .body-area .playhead {
+    position: absolute;
+    width: 8px;
+    height: 8.5rem;
+    border-radius: 8px;
+    margin-bottom: 2.5rem;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.2);
+    pointer-events: none;
+    z-index: 2;
+    -webkit-transition: opacity 0.2s ease-in-out;
+    -moz-transition: opacity 0.2s ease-in-out;
+    -o-transition: opacity 0.2s ease-in-out;
+    -ms-transition: opacity 0.2s ease-in-out;
+    transition: opacity 0.2s ease-in-out; }
