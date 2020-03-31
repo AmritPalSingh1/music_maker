@@ -1,3 +1,27 @@
+.light-text-1 {
+  color: #f6cde6; }
+
+.light-text-2 {
+  color: #ffe5bc; }
+
+.light-text-3 {
+  color: #ddf9d9; }
+
+.light-text-4 {
+  color: #add9fe; }
+
+.light-bg-1 {
+  background: #f6cde6; }
+
+.light-bg-2 {
+  background: #ffe5bc; }
+
+.light-bg-3 {
+  background: #ddf9d9; }
+
+.light-bg-4 {
+  background: #add9fe; }
+
 .topbar-text {
   font-size: 1.5rem; }
 
@@ -5,17 +29,27 @@
   height: 100vh; }
   .body-area .center-area {
     height: 100%; }
+    .body-area .center-area .center-block {
+      width: 50%;
+      transition: all 0.25s ease-out; }
+      .body-area .center-area .center-block div.active i {
+        animation-name: shake;
+        animation-duration: 0.25s; }
   .body-area .option {
     text-align: center;
     cursor: pointer; }
+    .body-area .option i {
+      transition: all 0.25s ease-out; }
+      .body-area .option i.active {
+        color: black; }
   .body-area .playhead {
     position: absolute;
     width: 8px;
-    height: 8.5rem;
+    height: 11rem;
     border-radius: 8px;
     margin-bottom: 2.5rem;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.8);
     pointer-events: none;
     z-index: 2;
     -webkit-transition: opacity 0.2s ease-in-out;
@@ -23,3 +57,15 @@
     -o-transition: opacity 0.2s ease-in-out;
     -ms-transition: opacity 0.2s ease-in-out;
     transition: opacity 0.2s ease-in-out; }
+  .body-area .fix-size {
+    font-size: 1.3rem; }
+
+@keyframes shake {
+  10%, 90% {
+    transform: rotate(20deg); }
+  20%, 80% {
+    transform: rotate(-20deg); }
+  30%, 50%, 70% {
+    transform: rotate(20deg); }
+  40%, 60% {
+    transform: rotate(0deg); } }

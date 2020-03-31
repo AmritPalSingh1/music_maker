@@ -6,7 +6,7 @@ options_container.addEventListener('click', alter_options);
 let current_translate = 0;
 
 
-let selected = [[1, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0]];
+let selected = [[0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0]];
 
 function alter_options(e){
   
@@ -31,24 +31,32 @@ function add_icon(element, row, column){
     selected[row-1][column-1] = 0;
   }
   else if (row == 1){
-    element.className = "fas fa-drum ";
+    element.className = "fas fa-star fix-size light-text-1";
     selected[row-1][column-1] = 1;
   }
   else if (row == 2){
-    element.className = "fas fa-cube ";
+    element.className = "fas fa-cube fix-size light-text-2";
+    selected[row-1][column-1] = 1;
+  }
+  else if (row == 3){
+    element.className = "fab fa-sketch fix-size light-text-3";
     selected[row-1][column-1] = 1;
   }
   else{
-    element.className = "fab fa-gg-circle ";
+    element.className = "fas fa-square fix-size light-text-4";
     selected[row-1][column-1] = 1;
   }
-  console.log(selected)
 }
 
 function transform(){
   const col_width = get_col_width();
 
-  current_translate = current_translate + 1;
+  if (screen.width > 576){
+    current_translate = current_translate + 1;
+  }
+  else{
+    current_translate = current_translate + 0.75;
+  }
 
   if (current_translate > col_width*6){
     current_translate = 0;
@@ -59,82 +67,65 @@ function transform(){
   // Handle play music cases
   if ((current_translate + col_width/2) % col_width == 0 && current_translate != 0){
     const column_hit = (current_translate + col_width/2) / col_width;
-    // create sound
-
+    // Play sound
     if (selected[0][column_hit-1] == 1){
       playSound("a");
+      addAnimation(1, column_hit);
     }
     if (selected[1][column_hit-1] == 1){
       playSound("b");
+      addAnimation(2, column_hit);
     }
     if (selected[2][column_hit-1] == 1){
       playSound("c");
+      addAnimation(3, column_hit);
+    }
+    if (selected[3][column_hit-1] == 1){
+      playSound("d");
+      addAnimation(4, column_hit);
     }
 
-    // playSound();
   }
 
 
 }
 
 
-setInterval(transform , 5)
+setInterval(transform , 1);
 
 function get_col_width(){
-  return document.getElementById("sample-width").offsetWidth;
+  return document.querySelector(".sample-width").offsetWidth;
 }
 
-
-// Loop JS intro
-
-// let loopBeat;
-
-// let bassSynth;
-
-// function setup(){
-
-//   bassSynth = new Tone.MembraneSynth().toMaster();
-
-//   loopBeat = new Tone.Loop(song, '4n');
-//   Tone.Transport.start();
-//   loopBear.start(0);
-// }
-
-// function song(time){
-//   triggerAttackRelease('cl', '8n', time)
-//   console.log(time)
-// }
-
-//create a synth and connect it to the master output (your speakers)
-// const synth = new Tone.Synth().toMaster();
-
-// //play a middle 'C' for the duration of an 8th note
-// synth.triggerAttackRelease("C4", "8n");
 
 function playSound(sound){
   const synth = new Tone.Synth().toMaster();
 
   if (sound == "a"){
     //play a middle 'C' for the duration of an 8th note
-    synth.triggerAttackRelease('E3', '8n');
+    synth.triggerAttackRelease('D2', '8n');
   }
   else if (sound == "b"){
-    synth.triggerAttackRelease("E4", "8n");
+    synth.triggerAttackRelease("B3", "8n");
   }
   else if (sound == "c"){
-    synth.triggerAttackRelease("D3", "8n");
+    synth.triggerAttackRelease("A3", "8n");
   }
-
+  else if (sound == "d"){
+    synth.triggerAttackRelease("C3", "8n");
+  }
 }
 
+function addAnimation(box_id, column_hit){
+  // Animate first box
+  const box = document.getElementById(`box${box_id}`);
+  box.classList.add('active');
 
-// const synth = new Tone.Synth().toMaster();
-// //play a note every quarter-note
-// const loop = new Tone.Loop(time => {
-// 	synth.triggerAttackRelease("C2", "8n", time);
-// }, "4n");
+  setTimeout(function(){ box.classList.remove('active'); }, 250);
 
+  const btn = document.getElementById(`${box_id}${column_hit}`).children[0];
+  btn.classList.add('active');
 
-// loop.start("0m").stop("4m");
+  setTimeout(function(){ btn.classList.remove('active'); }, 250);
 
-// Tone.Transport.start();
+}
