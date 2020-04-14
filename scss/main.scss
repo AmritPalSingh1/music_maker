@@ -1,73 +1,67 @@
-
-.light-text-1{
+.light-text-1 {
   color: #f6cde6;
 }
 
-.light-text-2{
+.light-text-2 {
   color: #ffe5bc;
 }
 
-.light-text-3{
+.light-text-3 {
   color: #ddf9d9;
 }
 
-.light-text-4{
+.light-text-4 {
   color: #add9fe;
 }
 
-
-.light-bg-1{
+.light-bg-1 {
   background: #f6cde6;
 }
 
-.light-bg-2{
+.light-bg-2 {
   background: #ffe5bc;
 }
 
-.light-bg-3{
+.light-bg-3 {
   background: #ddf9d9;
 }
 
-.light-bg-4{
+.light-bg-4 {
   background: #add9fe;
 }
 
-
-
-.topbar-text{
+.topbar-text {
   font-size: 1.5rem;
 }
 
-.body-area{
+.body-area {
   height: 100vh;
 
-  .center-area{
+  .center-area {
     height: 100%;
 
-    .center-block{
+    .center-block {
       width: 50%;
 
       transition: all 0.25s ease-out;
 
-      div.active{
-
-        i{
+      div.active {
+        i {
           animation-name: shake;
           animation-duration: 0.25s;
         }
-        
       }
     }
   }
 
-  .option{
+  .option {
     // font-size: 0.5rem;
     text-align: center;
     cursor: pointer;
 
-    i{
+    i {
       transition: all 0.25s ease-out;
-      &.active{
+      &.active {
         color: black;
       }
     }
@@ -92,27 +86,46 @@
     transition: opacity 0.2s ease-in-out;
   }
 
-  .fix-size{
+  .fix-size {
     font-size: 1.3rem;
   }
-
 }
 
-
 @keyframes shake {
-  10%, 90% {
+  10%,
+  90% {
     transform: rotate(20deg);
   }
-  
-  20%, 80% {
+
+  20%,
+  80% {
     transform: rotate(-20deg);
   }
 
-  30%, 50%, 70% {
+  30%,
+  50%,
+  70% {
     transform: rotate(20deg);
   }
 
-  40%, 60% {
+  40%,
+  60% {
     transform: rotate(0deg);
   }
+}
+
+.pause_btn {
+  position: absolute;
+  width: 100vw;
+  left: 0;
+  margin-top: -1.2rem;
+}
+
+.text-shadow {
+  text-shadow: 2px 2px 4px #000000;
+  cursor: pointer;
+}
+
+.text-pause {
+  color: #3bf864;
 }

@@ -61,11 +61,29 @@
     font-size: 1.3rem; }
 
 @keyframes shake {
-  10%, 90% {
+  10%,
+  90% {
     transform: rotate(20deg); }
-  20%, 80% {
+  20%,
+  80% {
     transform: rotate(-20deg); }
-  30%, 50%, 70% {
+  30%,
+  50%,
+  70% {
     transform: rotate(20deg); }
-  40%, 60% {
+  40%,
+  60% {
     transform: rotate(0deg); } }
+
+.pause_btn {
+  position: absolute;
+  width: 100vw;
+  left: 0;
+  margin-top: -1.2rem; }
+
+.text-shadow {
+  text-shadow: 2px 2px 4px #000000;
+  cursor: pointer; }
+
+.text-pause {
+  color: #3bf864; }
